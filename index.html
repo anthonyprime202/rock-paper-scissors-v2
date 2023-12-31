@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissor</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Rock Paper Scissor</h1>
+    </header>
+    <section class="symbols">
+      <button class="symbol-btn" onclick="evaluateChoice('✊')">✊</button>
+      <button class="symbol-btn" onclick="evaluateChoice('🖐️')">🖐️</button>
+      <button class="symbol-btn" onclick="evaluateChoice('✌️')">✌️</button>
+    </section>
+    <section class="choices">
+      <div class="player" id="you">
+        <p class="choice"></p>
+        <p class="name">You</p>
+      </div>
+      <p class="vs">VS</p>
+
+      <div class="player" id="com">
+        <p class="choice"></p>
+        <p class="name">Com</p>
+      </div>
+    </section>
+    <section class="result no-display">Result</section>
+    <section class="score-board">
+      <div class="scores">
+        <ul>
+          <li><span>Ties</span> <span id="ties"></span></li>
+          <li><span>Wins</span> <span id="wins"></span></li>
+          <li><span>Losses</span> <span id="losses"></span></li>
+        </ul>
+      </div>
+      <button class="reset-btn" onclick="resetScore()">Reset Score</button>
+    </section>
+
+    <section class="change-username-container">
+      <div class="username-title-container">
+        <p class="username-title">Change Username</p>
+        <p class="username-subtitle">
+          The username cannot be more than 4 letters.
+        </p>
+      </div>
+      <div class="username-activity-container">
+        <input
+          type="text"
+          class="username-input"
+          onkeydown="if (event.key === 'Enter') { changeUsername() }"
+          placeholder="Enter a username"
+        />
+        <button class="username-btn" onclick="changeUsername()">Enter</button>
+      </div>
+    </section>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>
