@@ -34,7 +34,11 @@
           <li><span>Losses</span> <span id="losses"></span></li>
         </ul>
       </div>
-      <button class="reset-btn" onclick="resetScore()">Reset Score</button>
+      <div class="buttons">
+        <button class="reset-btn" onclick="resetScore()">Reset Score</button>
+        <button class="reset-btn" onclick="autoPlayInterval = startAutoPlay()">Auto Play</button>
+        <button class="stop-autoplay-btn no-display" onclick="stopAutoPlay()">Stop Play</button>
+      </div>
     </section>
 
     <section class="change-username-container">

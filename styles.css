@@ -150,6 +150,7 @@ li:has(#losses) {
     width: 8em;
     border-radius: .8rem;
     transition: color .25s, background-color .25s, opacity .2s;
+    margin: 0 1rem;
 }
 
 .reset-btn:hover {
@@ -159,6 +160,24 @@ li:has(#losses) {
 
 .reset-btn:active {
     opacity: .7;
+}
+
+.stop-autoplay-btn {
+  border: 1px solid #bd971d;
+  background-color: #bd971d;
+  color: #0f0700;
+  text-align: center;
+  padding: 0.5em 1em;
+  width: 8em;
+  border-radius: .8rem;
+  transition: opacity .2s;
+  margin: 0 1rem;
+}
+.stop-autoplay-btn:hover {
+  opacity: .8;
+}
+.stop-autoplay-btn:active {
+  opacity: .5;
 }
 
 .change-username-container {

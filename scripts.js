@@ -1,5 +1,5 @@
-function getScore () {
-  let scores = localStorage.getItem('score')
+function getScore() {
+  let scores = localStorage.getItem("score");
   if (scores) {
     return JSON.parse(scores);
   } else {
@@ -7,7 +7,7 @@ function getScore () {
       wins: 0,
       losses: 0,
       ties: 0,
-    }
+    };
   }
 }
 
@@ -22,11 +22,9 @@ function updateScores(result) {
   localStorage.setItem("score", JSON.stringify(scores));
 }
 
-
 function changeUsername() {
-  value = document.querySelector('.username-input').value
-  if (value.length <= 4) 
-    document.querySelector('#you>.name').innerHTML =  value;
+  value = document.querySelector(".username-input").value;
+  if (value.length <= 4) document.querySelector("#you>.name").innerHTML = value;
 }
 
 updateScores();
@@ -46,13 +44,15 @@ function updateResult(userChoice, comChoice, result) {
   document.querySelector("#you .choice").innerHTML = userChoice;
   document.querySelector("#com .choice").innerHTML = comChoice;
   document.querySelector(".result").innerHTML = result;
-  document.querySelector(".result").classList.remove('no-display', 'green-bg', 'red-bg', 'yellow-bg')
-  if (result === 'You win!') {
-    document.querySelector(".result").classList.add('green-bg')
-  } else if (result === 'You lose!') {
-    document.querySelector(".result").classList.add('red-bg')
+  document
+    .querySelector(".result")
+    .classList.remove("no-display", "green-bg", "red-bg", "yellow-bg");
+  if (result === "You win!") {
+    document.querySelector(".result").classList.add("green-bg");
+  } else if (result === "You lose!") {
+    document.querySelector(".result").classList.add("red-bg");
   } else {
-    document.querySelector(".result").classList.add('yellow-bg')
+    document.querySelector(".result").classList.add("yellow-bg");
   }
 }
 
@@ -77,6 +77,26 @@ function evaluateChoice(userChoice) {
     updateResult(userChoice, comChoice, "You lose!");
     updateScores("losses");
   }
+}
+
+var autoPlayIntervalId = null;
+
+function startAutoPlay() {
+  document
+    .querySelector(".stop-autoplay-btn")
+    .classList.remove("no-display");
+  document.querySelector(".reset-btn:nth-child(2)").classList.add("no-display");
+  autoPlayIntervalId = setInterval(() => {
+    evaluateChoice(comChoiceSelector());
+  }, 1000);
+}
+
+function stopAutoPlay() {
+  document.querySelector(".stop-autoplay-btn").classList.add("no-display");
+  document
+    .querySelector(".reset-btn:nth-child(2)")
+    .classList.remove("no-display");
+  clearInterval(autoPlayIntervalId);
 }
 
 function resetScore() {
